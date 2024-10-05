@@ -3,21 +3,33 @@ createApp({
     delimiters: ['${', '}'],
     data() {
         return {
-            servicio: [],
-            testimonios: [],
-            moreImage: '',
-            idServices: '',
+            plan: {
+
+            },
+            parameters: {
+                timeFrame: '',
+                targetCalories: '',
+                diet: '',
+            },
+            foods: [
+                'Desayuno',
+                'Almuerzo', 
+                'Cena'
+            ]
         }
     },
     mounted() {
-        const url = 'https://api.spoonacular.com/mealplanner/generate?apiKey=92f0263949a74da9877e2fb48b92fbf9&timeFrame=day';
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                this.servicio = data.filter(item => item.url == window.location.pathname)[0]
+    },
+    methods: {
+        onSelectChange() {
+            let url = `https://api.spoonacular.com/mealplanner/generate?apiKey=92f0263949a74da9877e2fb48b92fbf9`;
+
+            Object.entries(this.parameters).forEach(([key, value]) => {
+                if (value) {
+                    url = url + `&${key}=${value}`
+                }
             });
-
             fetch(url, {
                 method: "GET",
                 headers: {
@@ -26,8 +38,10 @@ createApp({
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('valor de data')
-                    this.servicio = data.filter(item => item.url == window.location.pathname)[0]
+                    console.log('valor de data', data)
+                    this.plan = data['week'] ? data['week'] : [data];
                 });
-    },
-}).mount('#content-services');
+        }
+    }
+
+}).mount('#generate-meal-plan');

@@ -16,10 +16,12 @@
 
     <!-- Custom CSS -->
     <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+        type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +39,8 @@
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -83,13 +86,16 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="#post" class="btn btn-default btn-lg"><span class="network-name">Métodos POST</span></a>
+                                <a href="#post" class="btn btn-default btn-lg"><span class="network-name">Métodos
+                                        POST</span></a>
                             </li>
                             <li>
-                                <a href="#get" class="btn btn-default btn-lg"><span class="network-name">Métodos GET</span></a>
+                                <a href="#get" class="btn btn-default btn-lg"><span class="network-name">Métodos
+                                        GET</span></a>
                             </li>
                             <li>
-                                <a href="#delete" class="btn btn-default btn-lg"><span class="network-name">Métodos DELETE</span></a>
+                                <a href="#delete" class="btn btn-default btn-lg"><span class="network-name">Métodos
+                                        DELETE</span></a>
                             </li>
                         </ul>
                     </div>
@@ -104,7 +110,7 @@
 
     <!-- Page Content -->
 
-	<a  name="post"></a>
+    <a name="post"></a>
     <a name="connectUser"></a>
     <div class="content-section-a">
 
@@ -114,7 +120,9 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Conectar usuario</h2>
-                    <p class="lead">En base a la api de <a target="_blank" href="https://spoonacular.com/food-api/docs#Connect-Usern">conectar usuarios</a> se obtienen los valores del usuario.</p>
+                    <p class="lead">En base a la api de <a target="_blank"
+                            href="https://spoonacular.com/food-api/docs#Connect-Usern">conectar usuarios</a> se obtienen
+                        los valores del usuario.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/ipad.jpg" alt="">
@@ -137,7 +145,9 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Añadir plan de comidas</h2>
-                    <p class="lead">En base a la api de <a target="_blank" href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">añadir plan de comidas</a> se pueden agregar recetas, ingredientes o un plan por comida al plan diario.</p>
+                    <p class="lead">En base a la api de <a target="_blank"
+                            href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">añadir plan de comidas</a> se
+                        pueden agregar recetas, ingredientes o un plan por comida al plan diario.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="img/dog.jpg" alt="">
@@ -152,27 +162,95 @@
 
     <a name="get"></a>
     <a name="generateMealPlan"></a>
-    <div class="content-section-a">
+    <div class="content-section-a" id="generate-meal-plan">
 
         <div class="container">
-            <div class="row">
+            <div class="row content-generate">
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Generar Plan de comidas</h2>
-                    <p class="lead">En base a la api de <a target="_blank" href="https://spoonacular.com/food-api/docs#Generate-Meal-Plan">generar plan de comidas</a> y basados en los parametros ingresados por el usuario se obtiene un plan de comidas de un dia.</p>
+                    <p class="lead">En base a la api de <a target="_blank"
+                            href="https://spoonacular.com/food-api/docs#Generate-Meal-Plan">generar plan de comidas</a>
+                        y basados en los parametros ingresados por el usuario se obtiene un plan de comidas de un dia.
+                    </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/ipad.jpg" alt="">
+                    <div class="content-fields">
+                        <select v-model="parameters.timeFrame" @change="onSelectChange">
+                            <option value="">¿Que tipo de plan desea?</option>
+                            <option value="day">Diario</option>
+                            <option value="week">Semanal</option>
+                        </select>
+                        <select v-model="parameters.diet" @change="onSelectChange">
+                            <option value="">Seleccione un tipo de dieta</option>
+                            <option value="Gluten Free">Sin gluten</option>
+                            <option value="Ketogenic">Cetogénico</option>
+                            <option value="Vegetarian">Vegetariano</option>
+                            <option value="Lacto-Vegetarian">Lactovegetariano</option>
+                            <option value="Ovo-Vegetarian">Ovo-vegetariano</option>
+                            <option value="Vegan">Vegano</option>
+                            <option value="Pescetarian">Pescetariano</option>
+                            <option value="Paleo">Paleo</option>
+                            <option value="Primal">Primitivo</option>
+                            <option value="Low FODMAP">Bajo contenido de FODMAP</option>
+                            <option value="Whole30">Entero30</option>
+                        </select>
+                        <select v-model="parameters.targetCalories" @change="onSelectChange">
+                            <option value="">¿Numero de calorias diarias?</option>
+                            <option value="1000">1000</option>
+                            <option value="1300">1300</option>
+                            <option value="1500">1500</option>
+                            <option value="1800">1800</option>
+                            <option value="2000">2000</option>
+                            <option value="2300">2300</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
         </div>
         <!-- /.container -->
 
+        
+
+                <div class="container">
+            <table class="rwd-table">
+                <tbody>
+                    <tr>
+                        <th>Dia/Semana</th>
+                        <th>Desayuno</th>
+                        <th>Almuerzo</th>
+                        <th>Cena</th>
+                        <th>Nutrientes</th>
+                    </tr>
+                    <tr v-for="(value, key) in plan" :key="key">
+                        <td data-th="Dia/Semana">
+                            ${key}
+                        </td>
+                        <template v-for="(value, key) in value.meals" :key="key">
+                            <td :data-th="foods[key]">
+                                <p class="title">${value.title}</p>
+                                <img :src="'https://img.spoonacular.com/recipes/' + value.id + '-556x370.jpg'"></img><br>
+                                <span>Tiempo de preparación: ${value.readyInMinutes} minutos</span><br>
+                                <span>Numero de porciones: ${value.servings}</span><br>
+                                <a :href="value.sourceUrl" target="blank">Ver receta</a>
+                            </td>
+                        </template>
+                        <td data-th="Nutrientes">
+                            <span>Calorias: ${value.nutrients.calories}</span><br>
+                            <span>Proteina: ${value.nutrients.protein}</span><br>
+                            <span>Grasa: ${value.nutrients.fat}</span><br>
+                            <span>Carbohidratos: ${value.nutrients.carbohydrates}</span><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
     <!-- /.content-section-a -->
-    
+
     <a name="getMealPlan"></a>
     <div class="content-section-b">
 
@@ -183,7 +261,9 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Obtener plan de comida diaria</h2>
-                    <p class="lead">En base a la api de <a target="_blank" href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Day">obtener plan de comidas</a> y basados en los parametros ingresados por el usuario se obtiene el plan de comidas de un dia.</p>
+                    <p class="lead">En base a la api de <a target="_blank"
+                            href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Day">obtener plan de comidas</a> y
+                        basados en los parametros ingresados por el usuario se obtiene el plan de comidas de un dia.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="img/dog.jpg" alt="">
@@ -207,7 +287,10 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Eliminar plan de comida diaria</h2>
-                    <p class="lead">En base a la api de <a target="_blank" href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">eliminar plan de comidas</a> y basados en los parametros ingresados por el usuario se puede eliminar el plan de comidas de un dia.</p>
+                    <p class="lead">En base a la api de <a target="_blank"
+                            href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">eliminar plan de
+                            comidas</a> y basados en los parametros ingresados por el usuario se puede eliminar el plan
+                        de comidas de un dia.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/phones.jpg" alt="">
@@ -251,8 +334,12 @@
             </div>
         </div>
     </footer>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <!-- RestApi -->
+    <script src="js/api.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
