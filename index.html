@@ -55,16 +55,10 @@
                         <a href="#connectUser">Conectar usuario</a>
                     </li>
                     <li>
-                        <a href="#addMealPlan">Añadir plan</a>
+                        <a href="#addMealPlan">Obtener recetas</a>
                     </li>
                     <li>
                         <a href="#generateMealPlan">Generar Plan</a>
-                    </li>
-                    <li>
-                        <a href="#getMealPlan">Obtener plan diario</a>
-                    </li>
-                    <li>
-                        <a href="#deleteMealPlan">Eliminar plan diario</a>
                     </li>
                 </ul>
             </div>
@@ -110,10 +104,10 @@
 
     <!-- Page Content -->
 
-    <a name="post"></a>
+    
     <a name="connectUser"></a>
     <div class="content-section-a">
-
+        <a name="post"></a>
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
@@ -134,7 +128,7 @@
         <!-- /.container -->
 
     <!-- /.content-section-a -->
-
+    <a name="get"></a>
     <a name="addMealPlan"></a>
     <div class="content-section-b">
 
@@ -144,13 +138,14 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Añadir plan de comidas</h2>
+                    <h2 class="section-heading">Obtener recetas</h2>
                     <p class="lead">En base a la api de <a target="_blank"
-                            href="https://spoonacular.com/food-api/docs#Add-to-Meal-Plan">añadir plan de comidas</a> se
-                        pueden agregar recetas, ingredientes o un plan por comida al plan diario.</p>
+                            href="https://spoonacular.com/food-api/docs#Search-Recipes-Complex">Buscar recetas</a> se
+                        pueden obtener diferentes recetas.</p>
+                        <a href="AddMealPLan/index.html" class="btn btn-primary">Datos obtenidos de la consulta</a>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6 col-sm-6">
-                    <img class="img-responsive" src="img/dog.jpg" alt="">
+                    <img class="img-responsive" src="img/recetas.jpeg" alt="">
                 </div>
             </div>
 
@@ -160,7 +155,7 @@
     </div>
     <!-- /.content-section-b -->
 
-    <a name="get"></a>
+    
     <a name="generateMealPlan"></a>
     <div class="content-section-a" id="generate-meal-plan">
 
@@ -251,58 +246,6 @@
     </div>
     <!-- /.content-section-a -->
 
-    <a name="getMealPlan"></a>
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Obtener plan de comida diaria</h2>
-                    <p class="lead">En base a la api de <a target="_blank"
-                            href="https://spoonacular.com/food-api/docs#Get-Meal-Plan-Day">obtener plan de comidas</a> y
-                        basados en los parametros ingresados por el usuario se obtiene el plan de comidas de un dia.</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dog.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <a name="delete"></a>
-    <a name="deleteMealPlan"></a>
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Eliminar plan de comida diaria</h2>
-                    <p class="lead">En base a la api de <a target="_blank"
-                            href="https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day">eliminar plan de
-                            comidas</a> y basados en los parametros ingresados por el usuario se puede eliminar el plan
-                        de comidas de un dia.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/phones.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -317,16 +260,10 @@
                             <a href="#connectUser">Conectar usuario</a>
                         </li>
                         <li>
-                            <a href="#addMealPlan">Añadir plan</a>
+                            <a href="#addMealPlan">Obtener recetas</a>
                         </li>
                         <li>
                             <a href="#generateMealPlan">Generar Plan</a>
-                        </li>
-                        <li>
-                            <a href="#getMealPlan">Obtener plan diario</a>
-                        </li>
-                        <li>
-                            <a href="#deleteMealPlan">Eliminar plan diario</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; Subgrupo 2 Arquitectura de Software 2024.</p>
